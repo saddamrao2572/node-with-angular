@@ -1,0 +1,23 @@
+<div class="row text-center">
+<p>Tickets:</p>
+
+	<div *ngIf="ticketss">
+      <h4>Tickets</h4>
+      <div>
+	  
+	    <div *ngFor='let in of counter(ticketss.count) ;let i = index' >
+		 <label><strong>Tickets Number:</strong> </label> {{ticketss._embedded.tickets[i].ticket_number}}<br/>
+		 <a class="badge badge-warning show" routerLink=" {{menuee}}">
+			View 
+		  </a>
+		 
+		</div>
+         
+      
+        
+      </div>
+     
+     
+    </div>
+	
+</div>

@@ -1,0 +1,20 @@
+<div class="row text-center">
+<p>Locations:</p>
+
+	<div *ngIf="locations">
+      <h4>Location</h4>
+      <div *ngFor='let in of counter(locations.count) ;let i = index' >
+        <label><strong>ID:</strong></label> {{locations.id}}<br/>
+        <label><strong>Title:</strong></label> {{locations.concept_name}}<br/>
+        <label><strong>Name:</strong></label> {{locations.name}}<br/>
+        <label><strong>Owner:</strong></label> {{locations.owner}}<br/>
+        <label><strong>Status:</strong></label> {{locations.status}}<br/>
+		<br/>
+         <a class="badge badge-warning show" routerLink="/locations/categories/{{locationID}}">
+			View Caregories
+		 </a>
+      </div>
+     
+     
+    </div>
+</div>
