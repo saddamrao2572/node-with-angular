@@ -12,8 +12,8 @@ Command
 #URL
 
 
-http://localhost:4200/locations
-http://localhost:4200/categories
-http://localhost:4200/tickets
+# http://localhost:4200/locations
+# http://localhost:4200/categories
+# http://localhost:4200/tickets
 
 

@@ -15,6 +15,6 @@ go to node-server folder and run
 
 
 #URLS
-http://localhost:3000/locations
-http://localhost:3000/categories
-http://localhost:3000/tickets
+# http://localhost:3000/locations
+# http://localhost:3000/categories
+# http://localhost:3000/tickets
