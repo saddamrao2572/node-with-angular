@@ -1,0 +1,38 @@
+<form  (ngSubmit) = "checkAuth()" >
+<div class="submit-form row col-md-12 ">
+  <div class="col-md-4">
+   
+  </div>
+ <div class="col-md-4">
+    <div class="form-group ">
+      <label for="id">Api Key</label>
+      <input
+        type="text"
+        class="form-control"
+        id="id"
+        required
+        name="api_key"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="restaurant">Restaurant ID</label>
+      <input
+        class="form-control"
+        id="restaurant"
+        
+        
+        formControlName="restaurant"
+      />
+    </div>
+	<br>
+    
+	 
+	  <button (click)="checkAuth()" class="btn btn-success btn-block">Authenticate Now</button>
+  </div>
+   <div class="col-md-4">
+   
+   </div>
+  
+</div>
+</form>
