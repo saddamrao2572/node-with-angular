@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LocationComponent } from './components/location/location.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { TicketsComponent } from './components/tickets/tickets.component';
+ import { AuthComponent } from './components/auth/auth.component';
 
 
 @NgModule({

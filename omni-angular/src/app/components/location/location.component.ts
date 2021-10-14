@@ -24,6 +24,7 @@ export class LocationComponent implements OnInit {
 
   ngOnInit() {
 	   this.conectOmnivores();
+	   //this.counter();
   }
   counter(i: number) {
     return new Array(i);

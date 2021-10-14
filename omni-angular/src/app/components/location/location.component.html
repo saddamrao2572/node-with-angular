@@ -4,11 +4,11 @@
 	<div *ngIf="locations">
       <h4>Location</h4>
       <div *ngFor='let in of counter(locations.count) ;let i = index' >
-        <label><strong>ID:</strong></label> {{locations.id}}<br/>
-        <label><strong>Title:</strong></label> {{locations.concept_name}}<br/>
-        <label><strong>Name:</strong></label> {{locations.name}}<br/>
-        <label><strong>Owner:</strong></label> {{locations.owner}}<br/>
-        <label><strong>Status:</strong></label> {{locations.status}}<br/>
+        <label><strong>ID:</strong></label> {{locations._embedded.locations[i].id}}<br/>
+        <label><strong>Title:</strong></label>  {{locations._embedded.locations[i].concept_name}}<br/>
+        <label><strong>Name:</strong></label>  {{locations._embedded.locations[i].concept_name}}<br/>
+        <label><strong>Owner:</strong></label>  {{locations._embedded.locations[i].owner}}<br/>
+        <label><strong>Status:</strong></label>  {{locations._embedded.locations[i].status}}<br/>
 		<br/>
          <a class="badge badge-warning show" routerLink="/locations/categories/{{locationID}}">
 			View Caregories

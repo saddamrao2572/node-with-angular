@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Renderer2, RendererFactory2 } from '@angular/core';
 import { LocationService } from 'src/app/services/location/location.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
@@ -10,25 +10,30 @@ import { FormBuilder } from '@angular/forms';
 export class AuthComponent implements OnInit {
 
   currentTutorial = null;
-  message = '';
+  currentResponce : any;
+  message = 'please enter api key to connect omivores system';
+  isCheck = false;
   api_key = '';
+  locationBTn = '';
   restaurant = '';
 	
   constructor(private LocationService: LocationService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,private renderer: Renderer2,private rendererFactory: RendererFactory2) { 
+	
+	this.renderer = this.rendererFactory.createRenderer(null, null);
+	}
 
   ngOnInit() {
 	 var routeSub = this.route.queryParams.subscribe(params => {
      console.log(params) //log the entire params object
      console.log(params['api_key']) //log the value of id
-	 
+	 this.isCheck = false;
 	if(params['api_key']!='')
 	{
 		this.api_key=params['api_key'];
 		this.getAuth();
-	}else
-	{
+		
 		
 	}
 	 
@@ -43,40 +48,7 @@ export class AuthComponent implements OnInit {
 	  console.log('Api key');
   }
   
-  
-  onSubmit(): void {
-	 
-    // Process checkout data here
-   if(this.api_key=='')
-   {
-	  
-	   alert('please provide api key');
-	   console.log('please provide api key');
-   }else
-   {
-	    console.log('key set provide api key'+this.api_key);
-		
-	   //alert('please wait ');
-	    const data = {
-      api_key: this.api_key,
-      restaurant: this.restaurant
-    };
-	   this.LocationService.auth()
-		  .subscribe(
-			response => {
-			  console.log(response);
-			  
-			 
-			  
-			},
-			error => {
-			  console.log(error);
-			});
-	   
-   }
-   
-  }
-  
+
   
   
   
@@ -93,18 +65,32 @@ export class AuthComponent implements OnInit {
    
    
   getAuth() {
+		
 			this.LocationService.auth()
 			  .subscribe(
 				data => {
 				  this.api_key =  this.api_key;
+				  this.message ='you are successfully conncted to omnivores';
+				  
+				  const elem = this.renderer.createElement('a');
+					const text = this.renderer.createText('View All Locations');
+					this.renderer.setAttribute(elem, 'href', '/locations?api_key='+this.api_key);
+					this.renderer.appendChild(elem, text);
+				  
+				
+					// Append the created div to the body element
+					this.renderer.appendChild(document.body, elem);
+				 
 				  console.log(data);
 				},
 				error => {
 				  console.log(error);
+				  this.locationBTn="";
+				   this.message = ' Your are Not able  Connect wit omnivores please check the details and try again ';
+				  
 				});
 
-			
-		   
+		
 		  }
    
   
