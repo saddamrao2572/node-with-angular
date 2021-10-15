@@ -1,17 +1,15 @@
 <div class="row text-center">
 
 
-<div class="col-md-3  float-left">
-<h2>Caregories:</h2>
+<div class="col-md-3  float-left card ">
+<h2 class="card-title">Caregories:</h2>
 	<div *ngIf="categories">
     
-       <div *ngFor='let in of counter(categories.count) ;let i = index' >
-        <label><strong>Category name:</strong></label> {{categories._embedded.categories[i].name}}<br/>
-        <label><strong>Category Id:</strong></label> {{categories._embedded.categories[i].id}}<br/>
-        <label><strong>POS Id:</strong></label> {{categories._embedded.categories[i].pos_id}}<br/>
-        <a class="badge badge-warning show" href="/">
-        View Caregories
-      </a>
+       <div *ngFor='let in of counter(categories.count) ;let i = index'  class="card-body">
+        <label><strong style="text-align:left" >Category name:</strong></label> {{categories._embedded.categories[i].name}}<br/>
+        <label><strong style="text-align:left" >Category Id:</strong></label> {{categories._embedded.categories[i].id}}<br/>
+        <label><strong style="text-align:left" >POS Id:</strong></label> {{categories._embedded.categories[i].pos_id}}<br/>
+       
 		<br/>
         
       </div>
@@ -20,17 +18,15 @@
     </div>
     </div>
 
-	<div class="col-md-3  float-left">
-	<h2>Items:</h2>
+	<div class="col-md-3  float-left card">
+	<h2 class="card-title">Items:</h2>
 	<div *ngIf="items">
       
-       <div *ngFor='let in of counter(items.count) ;let i = index' >
-        <label><strong>items name:</strong></label> {{items._embedded.menu_items[i].name}}<br/>
-        <label><strong>items Id:</strong></label> {{items._embedded.menu_items[i].id}}<br/>
-        <label><strong>pos Id:</strong></label> {{items._embedded.menu_items[i].pos_id}}<br/>
-        <a class="badge badge-warning show" href="/">
-        View Caregories
-      </a>
+       <div *ngFor='let in of counter(items.count) ;let i = index'  class="card-body">
+        <label><strong style="text-align:left" >items name:</strong></label> {{items._embedded.menu_items[i].name}}<br/>
+        <label><strong style="text-align:left" >items Id:</strong></label> {{items._embedded.menu_items[i].id}}<br/>
+        <label><strong style="text-align:left" >pos Id:</strong></label> {{items._embedded.menu_items[i].pos_id}}<br/>
+       
 		<br/>
         
       </div>
@@ -41,14 +37,14 @@
 
 
 
-<div class="col-md-3  float-left">
-<h2>Tickets:</h2>
+<div class="col-md-3  float-left card">
+<h2 class="card-title">Tickets:</h2>
 	<div *ngIf="ticketss">
      
-       <div *ngFor='let in of counter(ticketss.count) ;let i = index' >
-        <label><strong>tickets number:</strong></label>{{ticketss._embedded.tickets[i].ticket_number}}<br/>
-        <label><strong>ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].id}}<br/>
-        <label><strong>ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].open}}<br/>
+       <div *ngFor='let in of counter(ticketss.count) ;let i = index'  class="card-body">
+        <label><strong style="text-align:left" >tickets number:</strong></label>{{ticketss._embedded.tickets[i].ticket_number}}<br/>
+        <label><strong style="text-align:left" >ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].id}}<br/>
+        <label><strong style="text-align:left" >ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].open}}<br/>
         
 		<br/>
         
@@ -59,21 +55,39 @@
     </div>
 
 
+<style>
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background: floralwhite;
+    text-align: left;
+    padding: 5%;
+    border-radius: 7px;
+    margin: 5px;
+}
+.card-body:hover{
+   
+    background: #1976d2;
+    color:white;
+    padding: 7%;
+    border-radius: 1px;
+    margin: 10px;
+}
+</style>
 
 
 
 
 
 
-
-<div class="col-md-3  float-left">
-<h2>Modifire:</h2>
+<div class="col-md-3  float-left card">
+<h2 class="card-title">Modifire:</h2>
 	<div *ngIf="modifire">
       
-       <div *ngFor='let in of counter(modifire.count) ;let i = index' >
-        <label><strong>modifire name:</strong></label> {{modifire._embedded.modifiers[i].name}}<br/>
-        <label><strong>modifire Id:</strong></label>{{modifire._embedded.modifiers[i].id}}<br/>
-        <label><strong>status:</strong></label>{{modifire._embedded.modifiers[i].open}}<br/>
+       <div *ngFor='let in of counter(modifire.count) ;let i = index'  class="card-body">
+        <label><strong style="text-align:left" >modifire name:</strong></label> {{modifire._embedded.modifiers[i].name}}<br/>
+        <label><strong style="text-align:left" >modifire Id:</strong></label>{{modifire._embedded.modifiers[i].id}}<br/>
+        <label><strong style="text-align:left" >status:</strong></label>{{modifire._embedded.modifiers[i].open}}<br/>
       
 		<br/>
         
