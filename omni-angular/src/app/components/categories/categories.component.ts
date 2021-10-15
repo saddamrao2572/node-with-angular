@@ -11,6 +11,8 @@ export class CategoriesComponent implements OnInit {
  
    menuee: any;
    ticketss: any;
+   items: any;
+   modifire: any;
   currentLocations = null;
   currentIndex = -1;
   id = '';
@@ -25,6 +27,10 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
 	   this.conectOmnivores();
+	   this.getTickets();
+	   this.getModifire();
+	   this.getItems();
+	   this.getMenu();
   }
   counter(i: number) {
     return new Array(i);
@@ -43,9 +49,57 @@ export class CategoriesComponent implements OnInit {
 		
   }
   getMenu() {
+	  
+	   this.LocationService.getAllMenu()
+      .subscribe(
+        data => {
+          this.menuee = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
    
   }
    getTickets() {
+   
+	
+	 this.LocationService.getAllTickets()
+      .subscribe(
+        data => {
+          this.ticketss = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+   
+   
+  }
+   getItems() {
+   
+    this.LocationService.getAllItems()
+      .subscribe(
+        data => {
+          this.items = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+   
+  }
+   getModifire() {
+	   
+	    this.LocationService.getAllModifire()
+      .subscribe(
+        data => {
+          this.modifire = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
    
    
   }

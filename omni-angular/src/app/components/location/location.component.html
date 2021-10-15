@@ -10,7 +10,7 @@
         <label><strong>Owner:</strong></label>  {{locations._embedded.locations[i].owner}}<br/>
         <label><strong>Status:</strong></label>  {{locations._embedded.locations[i].status}}<br/>
 		<br/>
-         <a class="badge badge-warning show" routerLink="/locations/categories/{{locationID}}">
+         <a class="badge badge-warning show" href="{{urll}}{{locations._embedded.locations[i].id}}{{urllpart}}{{api_key}}">
 			View Caregories
 		 </a>
       </div>

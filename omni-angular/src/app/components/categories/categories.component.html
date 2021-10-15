@@ -1,13 +1,17 @@
 <div class="row text-center">
-<p>Caregories:</p>
+<div class="col-md-4">
+</div>
 
+<div class="col-md-4">
+<h2>Caregories:</h2>
 	<div *ngIf="categories">
-      <h4>Menu</h4>
+    
        <div *ngFor='let in of counter(categories.count) ;let i = index' >
         <label><strong>Category name:</strong></label> {{categories._embedded.categories[i].name}}<br/>
         <label><strong>Category Id:</strong></label> {{categories._embedded.categories[i].id}}<br/>
-        <a class="badge badge-warning show" routerLink="/omni/menu/{{categories._embedded.categories[i].id}}">
-        View Menu
+        <label><strong>POS Id:</strong></label> {{categories._embedded.categories[i].pos_id}}<br/>
+        <a class="badge badge-warning show" href="/">
+        View Caregories
       </a>
 		<br/>
         
@@ -15,6 +19,97 @@
      
      
     </div>
+    </div>
 
-	
+	<div class="col-md-4">
 </div>
+
+</div>
+
+
+<div class="row text-center">
+<div class="col-md-4">
+</div>
+
+<div class="col-md-4">
+<h2>Tickets:</h2>
+	<div *ngIf="ticketss">
+     
+       <div *ngFor='let in of counter(ticketss.count) ;let i = index' >
+        <label><strong>tickets number:</strong></label>{{ticketss._embedded.tickets[i].ticket_number}}<br/>
+        <label><strong>ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].id}}<br/>
+        <label><strong>ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].open}}<br/>
+        
+		<br/>
+        
+      </div>
+     
+     
+    </div>
+    </div>
+
+	<div class="col-md-4">
+</div>
+
+</div>
+
+
+
+<div class="row text-center">
+<div class="col-md-4">
+</div>
+
+<div class="col-md-4">
+<h2>Items:</h2>
+	<div *ngIf="items">
+      
+       <div *ngFor='let in of counter(items.count) ;let i = index' >
+        <label><strong>items name:</strong></label> name<br/>
+        <label><strong>items Id:</strong></label> name<br/>
+        <label><strong>items Id:</strong></label> name<br/>
+        <a class="badge badge-warning show" href="/">
+        View Caregories
+      </a>
+		<br/>
+        
+      </div>
+     
+     
+    </div>
+    </div>
+
+	<div class="col-md-4">
+</div>
+
+</div>
+
+
+
+
+<div class="row text-center">
+<div class="col-md-4">
+</div>
+
+<div class="col-md-4">
+<h2>Modifire:</h2>
+	<div *ngIf="modifire">
+      
+       <div *ngFor='let in of counter(modifire.count) ;let i = index' >
+        <label><strong>modifire name:</strong></label> {{modifire._embedded.modifiers[i].name}}<br/>
+        <label><strong>modifire Id:</strong></label>{{modifire._embedded.modifiers[i].id}}<br/>
+        <label><strong>status:</strong></label>{{modifire._embedded.modifiers[i].open}}<br/>
+      
+		<br/>
+        
+      </div>
+     
+     
+    </div>
+    </div>
+
+	<div class="col-md-4">
+</div>
+
+</div>
+
+

@@ -10,7 +10,7 @@ var locationID='';
 var baseURL = 'https://api.omnivore.io/1.0/';
 
 // var location_url = 'https://api.omnivore.io/1.0/locations/i57z4qMT?limit=20&api_key=fa1541435e6c4f82a1a6dccd86bc43a2';
-var location_url=baseURL+'locations?api_key=';
+var location_url='';
 var location_detail_url =baseURL;
 var menu_detail_url =baseURL+'locations?api_key=';
 
@@ -22,7 +22,8 @@ exports.location_list = function(req, res) {
 // Display list of all Locations.
 exports.get_all_locations = function(req, res) {
 				//here you can get all location from omnivores server
-
+	location_url='';
+	location_url=baseURL+'locations?api_key=';
 	console.log(location_url);
 	
 	api_key=req.params.id;
@@ -81,10 +82,10 @@ exports.get_all_locations = function(req, res) {
 
 // Display list of all Locations.
 exports.get_all_locations_all = function(req, res) {
-				//here you can get all location from omnivores server
-
-				console.log(location_url);
-				 	
+			location_url='';
+	location_url=baseURL+'locations?api_key=';
+	console.log(location_url);
+	
 	api_key=req.params.id;
 	
 	console.log(location_url);
@@ -116,7 +117,7 @@ exports.get_all_locations_all = function(req, res) {
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
 					   //res.send(JSON.stringify({json: data}));
-					   //res.send(JSON.stringify(data));
+					  // res.send(JSON.stringify(data));
 					    console.log('api' +api_key );
 					 res.send(data);
 					  check=true;
@@ -386,16 +387,17 @@ locationID=req.params.locationID;
 
 // Display list of all Locations.
 exports.get_all_menu = function(req, res) {
+	locationID='';
 				//here you can get all location from omnivores server
 locationID=req.params.locationID;
-				console.log(location_url);
-				 	location_url=location_url + req.params.id;
+				
+				 	
 	api_key=req.params.id;
 	var url=baseURL+'locations/'+locationID+'/menu/?limit=20&api_key='+ req.params.id;
 	console.log(url);
 	https.get(url, (resp) => {
 				let data = '';
-				console.log(url);
+				
 				console.log(resp.headers);
 				
 				// A chunk of data has been recieved.
@@ -422,9 +424,9 @@ locationID=req.params.locationID;
 					    res.setHeader('Api_Key',"'"+api_key+"'");
 					   //res.send(JSON.stringify({json: data}));
 					  // res.send(JSON.stringify(data));
-					    console.log('api' +api_key );
+					    //console.log('api' +api_key );
 					  res.send(data);
-					  check=true;
+
 					  
 					}
 				  });
@@ -447,16 +449,17 @@ locationID=req.params.locationID;
 
 // Display list of all Locations.
 exports.get_all_categories = function(req, res) {
+				locationID='';
 				//here you can get all location from omnivores server
 locationID=req.params.locationID;
-				console.log(location_url);
-				 	location_url=location_url + req.params.id;
+				
+				 	
 	api_key=req.params.id;
 	var url=baseURL+'locations/'+locationID+'/menu/categories/?limit=20&api_key='+ req.params.id;
 	console.log(url);
 	https.get(url, (resp) => {
 				let data = '';
-				console.log(url);
+				
 				console.log(resp.headers);
 				
 				// A chunk of data has been recieved.
@@ -477,15 +480,15 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-					   res.setHeader('content-type', 'application/json');
+					  // res.setHeader('content-type', 'application/json');
 					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
 					   //res.send(JSON.stringify({json: data}));
-					   res.send(JSON.stringify(data));
-					    console.log('api' +api_key );
-					 // res.send(data);
-					  check=true;
+					  // res.send(JSON.stringify(data));
+					    //console.log('api' +api_key );
+					  res.send(data);
+
 					  
 					}
 				  });
@@ -507,17 +510,17 @@ locationID=req.params.locationID;
 
 
 // Display list of all Locations.
-exports.get_all_items = function(req, res) {
+exports.get_all_items = function(req, res) {	locationID='';
 				//here you can get all location from omnivores server
 locationID=req.params.locationID;
-				console.log(location_url);
-				 	location_url=location_url + req.params.id;
+				
+				 	
 	api_key=req.params.id;
 	var url=baseURL+'locations/'+locationID+'/menu/items/?limit=20&api_key='+ req.params.id;
 	console.log(url);
 	https.get(url, (resp) => {
 				let data = '';
-				console.log(url);
+				
 				console.log(resp.headers);
 				
 				// A chunk of data has been recieved.
@@ -538,15 +541,15 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-					   res.setHeader('content-type', 'application/json');
+					  // res.setHeader('content-type', 'application/json');
 					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
 					   //res.send(JSON.stringify({json: data}));
 					  // res.send(JSON.stringify(data));
-					    console.log('api' +api_key );
-					  //res.send(data);
-					  check=true;
+					    //console.log('api' +api_key );
+					  res.send(data);
+
 					  
 					}
 				  });
@@ -562,7 +565,6 @@ locationID=req.params.locationID;
 				console.log("Error: " + err);
 				 res.send("Error: " + data);
 				});
-
 };
 
 

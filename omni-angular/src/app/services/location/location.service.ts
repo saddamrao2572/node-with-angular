@@ -14,8 +14,8 @@ const ticketsUrl = 'http://localhost:3000/tickets';
 export class LocationService {
 
     api_key='';
- 
-    
+    locationID='';
+
   constructor(private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router) {
@@ -56,8 +56,10 @@ export class LocationService {
   }
   getAllLocations() {
 	  
-			var routeSub = this.route.queryParams.subscribe(params => {
-			
+			 var routeSub = this.route.queryParams.subscribe(params => {
+			 //console.log(params) //log the entire params object
+			// console.log(params['api_key']) //log the value of id
+			 
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
@@ -66,18 +68,130 @@ export class LocationService {
 			 
 		   });
 	  
+	  
+	  
     return this.http.get(baseUrl + this.api_key);
   } 
   getAllCategories() {
-    return this.http.get(menueUrl);
+    var routeSub = this.route.queryParams.subscribe(params => {
+			 //console.log(params) //log the entire params object
+			// console.log(params['api_key']) //log the value of id
+			 
+			if(params['api_key']!='')
+			{
+				this.api_key=params['api_key'];
+				//this.checkAuth();
+			}
+			if(params['locationID']!='')
+			{
+				this.locationID=params['locationID'];
+				//this.checkAuth();
+			}
+			 
+		   });
+	  
+	  
+	  
+    return this.http.get(baseUrlURL +'/categories/'+ this.locationID  +'/'+ this.api_key);
   }
+  getAllMenu() {
+    var routeSub = this.route.queryParams.subscribe(params => {
+			 //console.log(params) //log the entire params object
+			// console.log(params['api_key']) //log the value of id
+			 
+			if(params['api_key']!='')
+			{
+				this.api_key=params['api_key'];
+				//this.checkAuth();
+			}
+			if(params['locationID']!='')
+			{
+				this.locationID=params['locationID'];
+				//this.checkAuth();
+			}
+			 
+		   });
+	  
+	  
+	  
+    return this.http.get(baseUrlURL +'/menu/'+ this.locationID  +'/'+ this.api_key);
+  }
+   getAllTickets() {
+    var routeSub = this.route.queryParams.subscribe(params => {
+			 //console.log(params) //log the entire params object
+			// console.log(params['api_key']) //log the value of id
+			 
+			if(params['api_key']!='')
+			{
+				this.api_key=params['api_key'];
+				//this.checkAuth();
+			}
+			if(params['locationID']!='')
+			{
+				this.locationID=params['locationID'];
+				//this.checkAuth();
+			}
+			 
+		   });
+	  
+	  
+	  
+    return this.http.get(baseUrlURL +'/tickets/'+ this.locationID  +'/'+ this.api_key);
+  }
+  
+    getAllItems() {
+    var routeSub = this.route.queryParams.subscribe(params => {
+			 //console.log(params) //log the entire params object
+			// console.log(params['api_key']) //log the value of id
+			 
+			if(params['api_key']!='')
+			{
+				this.api_key=params['api_key'];
+				//this.checkAuth();
+			}
+			if(params['locationID']!='')
+			{
+				this.locationID=params['locationID'];
+				//this.checkAuth();
+			}
+			 
+		   });
+	  
+	  
+	  
+    return this.http.get(baseUrlURL +'/items/'+ this.locationID  +'/'+ this.api_key);
+  }
+  
+  
+    getAllModifire() {
+    var routeSub = this.route.queryParams.subscribe(params => {
+			 //console.log(params) //log the entire params object
+			// console.log(params['api_key']) //log the value of id
+			 
+			if(params['api_key']!='')
+			{
+				this.api_key=params['api_key'];
+				//this.checkAuth();
+			}
+			if(params['locationID']!='')
+			{
+				this.locationID=params['locationID'];
+				//this.checkAuth();
+			}
+			 
+		   });
+	  
+	  
+	  
+    return this.http.get(baseUrlURL +'/modifiers/'+ this.locationID  +'/'+ this.api_key);
+  }
+  
+  
  menu() {
     return this.http.get(menueUrl);
   }
   
-  getAllTickets() {
-    return this.http.get(ticketsUrl);
-  }
+ 
   
   
 
