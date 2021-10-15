@@ -1,8 +1,7 @@
 <div class="row text-center">
-<div class="col-md-4">
-</div>
 
-<div class="col-md-4">
+
+<div class="col-md-3  float-left">
 <h2>Caregories:</h2>
 	<div *ngIf="categories">
     
@@ -21,17 +20,28 @@
     </div>
     </div>
 
-	<div class="col-md-4">
+	<div class="col-md-3  float-left">
+	<h2>Items:</h2>
+	<div *ngIf="items">
+      
+       <div *ngFor='let in of counter(items.count) ;let i = index' >
+        <label><strong>items name:</strong></label> {{items._embedded.menu_items[i].name}}<br/>
+        <label><strong>items Id:</strong></label> {{items._embedded.menu_items[i].id}}<br/>
+        <label><strong>pos Id:</strong></label> {{items._embedded.menu_items[i].pos_id}}<br/>
+        <a class="badge badge-warning show" href="/">
+        View Caregories
+      </a>
+		<br/>
+        
+      </div>
+     
+     
+    </div>
 </div>
 
-</div>
 
 
-<div class="row text-center">
-<div class="col-md-4">
-</div>
-
-<div class="col-md-4">
+<div class="col-md-3  float-left">
 <h2>Tickets:</h2>
 	<div *ngIf="ticketss">
      
@@ -48,49 +58,15 @@
     </div>
     </div>
 
-	<div class="col-md-4">
-</div>
-
-</div>
-
-
-
-<div class="row text-center">
-<div class="col-md-4">
-</div>
-
-<div class="col-md-4">
-<h2>Items:</h2>
-	<div *ngIf="items">
-      
-       <div *ngFor='let in of counter(items.count) ;let i = index' >
-        <label><strong>items name:</strong></label> name<br/>
-        <label><strong>items Id:</strong></label> name<br/>
-        <label><strong>items Id:</strong></label> name<br/>
-        <a class="badge badge-warning show" href="/">
-        View Caregories
-      </a>
-		<br/>
-        
-      </div>
-     
-     
-    </div>
-    </div>
-
-	<div class="col-md-4">
-</div>
-
-</div>
 
 
 
 
-<div class="row text-center">
-<div class="col-md-4">
-</div>
 
-<div class="col-md-4">
+
+
+
+<div class="col-md-3  float-left">
 <h2>Modifire:</h2>
 	<div *ngIf="modifire">
       
@@ -107,8 +83,7 @@
     </div>
     </div>
 
-	<div class="col-md-4">
-</div>
+
 
 </div>
 

@@ -20,7 +20,7 @@ Node url and Commands
 go to node-server folder and run
 
 
-#commands
+	#command
    $ set DEBUG=node-server:* & npm start
 
 
@@ -58,6 +58,7 @@ Command
 # http://localhost:4200/auth/
 # http://localhost:4200/locations?api_key=e40ba44d5ed1435a833a00426e2581b1
 # http://localhost:4200/
+# http://localhost:4200/categories?locationID=iGEbAzrT&api_key=e40ba44d5ed1435a833a00426e2581b1
 
 
 
