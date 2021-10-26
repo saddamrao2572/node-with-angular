@@ -1,58 +1,44 @@
+<div *ngIf="categories">
+
 <div class="row text-center">
 
+	
+		<div *ngFor='let in of counter(categories.count) ;let n = index'  class="col-md-4  float-left card ">
+		
+			 <h5 class="card-title">Category Name: {{categories._embedded.categories[n].name}}</h5>
+			 <h5 class="card-title">Category ID: {{categories._embedded.categories[n].id}}</h5>
+			
+			<div *ngIf="items">
+				
+				  
+				   <div *ngFor='let in of counter(items.count) ;let i = index'  >
+					   <div *ngIf="categories._embedded.categories[n].id == items._embedded.menu_items[i]._embedded.menu_categories[0].id">
+						   <div class="card-body">
+						   
+								<label><strong style="text-align:left" >items name:</strong></label> {{items._embedded.menu_items[i].name}}<br/>
+								<label><strong style="text-align:left" >items Id:</strong></label> {{items._embedded.menu_items[i].id}}<br/>
+								<label><strong style="text-align:left" >pos Id:</strong></label> {{items._embedded.menu_items[i].pos_id}}<br/>
+								<label><strong style="text-align:left" >price per unit:</strong></label> {{items._embedded.menu_items[i].price_per_unit}}<br/>
+								<label><strong style="text-align:left" >Cat Name:</strong></label> {{items._embedded.menu_items[i]._embedded.menu_categories[0].name}}<br/>
+								<label><strong style="text-align:left" >Cat ID:</strong></label> {{items._embedded.menu_items[i]._embedded.menu_categories[0].id}}<br/>
+							   
+								<br/>
+							
+						  </div>
+					  </div>
+				  </div>
+				 
+				 
+			
+			</div>
+		   
+		</div>
 
-<div class="col-md-3  float-left card ">
-<h2 class="card-title">Caregories:</h2>
-	<div *ngIf="categories">
-    
-       <div *ngFor='let in of counter(categories.count) ;let i = index'  class="card-body">
-        <label><strong style="text-align:left" >Category name:</strong></label> {{categories._embedded.categories[i].name}}<br/>
-        <label><strong style="text-align:left" >Category Id:</strong></label> {{categories._embedded.categories[i].id}}<br/>
-        <label><strong style="text-align:left" >POS Id:</strong></label> {{categories._embedded.categories[i].pos_id}}<br/>
-       
-		<br/>
-        
-      </div>
-     
-     
-    </div>
-    </div>
-
-	<div class="col-md-3  float-left card">
-	<h2 class="card-title">Items:</h2>
-	<div *ngIf="items">
-      
-       <div *ngFor='let in of counter(items.count) ;let i = index'  class="card-body">
-        <label><strong style="text-align:left" >items name:</strong></label> {{items._embedded.menu_items[i].name}}<br/>
-        <label><strong style="text-align:left" >items Id:</strong></label> {{items._embedded.menu_items[i].id}}<br/>
-        <label><strong style="text-align:left" >pos Id:</strong></label> {{items._embedded.menu_items[i].pos_id}}<br/>
-       
-		<br/>
-        
-      </div>
-     
-     
-    </div>
-</div>
-
+			
 
 
-<div class="col-md-3  float-left card">
-<h2 class="card-title">Tickets:</h2>
-	<div *ngIf="ticketss">
-     
-       <div *ngFor='let in of counter(ticketss.count) ;let i = index'  class="card-body">
-        <label><strong style="text-align:left" >tickets number:</strong></label>{{ticketss._embedded.tickets[i].ticket_number}}<br/>
-        <label><strong style="text-align:left" >ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].id}}<br/>
-        <label><strong style="text-align:left" >ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].open}}<br/>
-        
-		<br/>
-        
-      </div>
-     
-     
-    </div>
-    </div>
+
+
 
 
 <style>
@@ -79,11 +65,35 @@
 </style>
 
 
+</div>
+</div>
+
+
+
+<div class="row text-center">
+
+<div class="col-md-6  float-left card">
+<h2 class="card-title">Tickets:</h2>
+	<div *ngIf="ticketss">
+     
+       <div *ngFor='let in of counter(ticketss.count) ;let i = index'  class="card-body">
+        <label><strong style="text-align:left" >tickets number:</strong></label>{{ticketss._embedded.tickets[i].ticket_number}}<br/>
+        <label><strong style="text-align:left" >ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].id}}<br/>
+        <label><strong style="text-align:left" >ticketss Id:</strong></label> {{ticketss._embedded.tickets[i].open}}<br/>
+        
+		<br/>
+        
+      </div>
+     
+     
+    </div>
+    </div>
 
 
 
 
-<div class="col-md-3  float-left card">
+
+<div class="col-md-6  float-left card">
 <h2 class="card-title">Modifire:</h2>
 	<div *ngIf="modifire">
       

@@ -10,6 +10,7 @@ export class CategoriesComponent implements OnInit {
  locations: any;
  
    menuee: any;
+   catID: any;
    ticketss: any;
    items: any;
    modifire: any;
@@ -17,10 +18,12 @@ export class CategoriesComponent implements OnInit {
   currentIndex = -1;
   id = '';
   title = '';
+  
   addOn = null;
   locationID = 'i57z4qMT';
   comboBox = null;
   description = '';
+
   
 
   constructor(private LocationService: LocationService) { }
@@ -101,6 +104,11 @@ export class CategoriesComponent implements OnInit {
           console.log(error);
         });
    
+   
+  }
+   chartMethod(s: number) {
+	   console.log(s);
+	   return s;
    
   }
   

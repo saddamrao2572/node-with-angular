@@ -71,7 +71,8 @@ export class LocationComponent implements OnInit {
   }
   getMenu() {
    
-  }
+  } 
+ 
    getTickets() {
    
    
