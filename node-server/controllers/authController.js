@@ -3,10 +3,13 @@ const cors = require('cors');
 var router = express.Router();
 const https = require('https');
 var getJSON =require('get-json');
+var fs = require('fs');
 var check =false;
 const app = express();
 var api_key='';
+var request = require('request');
 var locationID='';
+const querystring = require('querystring');
 var baseURL = 'https://api.omnivore.io/1.0/';
 
 // var location_url = 'https://api.omnivore.io/1.0/locations/i57z4qMT?limit=20&api_key=fa1541435e6c4f82a1a6dccd86bc43a2';
@@ -516,6 +519,7 @@ locationID=req.params.locationID;
 				
 				 	
 	api_key=req.params.id;
+	var ID=req.params.id;
 	var url=baseURL+'locations/'+locationID+'/menu/items/?limit=20&api_key='+ req.params.id;
 	console.log(url);
 	https.get(url, (resp) => {
@@ -541,13 +545,52 @@ locationID=req.params.locationID;
 					}
 					else
 					{
+						
+						
+						
+						
 					  // res.setHeader('content-type', 'application/json');
+					  
+					  //////price check
+					  var postData = querystring.stringify({"items":[{"menu_item":"204","quantity":5}]});
+						var priceUrl=baseURL+'locations/'+locationID+'/price_check/?limit=20&api_key='+ ID;
+
+							const options = {
+							  
+							  path: priceUrl,
+							  method: 'POST',
+							  headers: {
+								'Content-Type': 'application/json',
+								'Content-Length': postData.length,
+							  },
+							 
+							}
+
+							
+
+							request.post(
+							  priceUrl,
+							  {
+								json: {"items":[{"menu_item":"204","quantity":5}]},
+							  },
+							  
+							  (error, res, body) => {
+								if (error) {
+								  console.error(error)
+								  return
+								}
+								console.log(`statusCode: ${res.statusCode}`)
+								data = body;
+								console.log(body)
+							  }
+							)
+					  
 					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
 					   //res.send(JSON.stringify({json: data}));
 					  // res.send(JSON.stringify(data));
-					    //console.log('api' +api_key );
+					    
 					  res.send(data);
 
 					  
