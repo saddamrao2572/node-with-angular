@@ -159,7 +159,7 @@ export class LocationService {
 	  
 	  
 	  
-    return this.http.get(baseUrlURL +'/items/'+ this.locationID  +'/'+ this.api_key);
+    return this.http.get(baseUrlURL +'items/'+ this.locationID  +'/'+ this.api_key);
   }
   
   

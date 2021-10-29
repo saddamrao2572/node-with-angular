@@ -115,12 +115,10 @@ exports.get_all_locations_all = function(req, res) {
 					}
 					else
 					{
-					   // res.setHeader('content-type', 'application/json');
+
 					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					  // res.send(JSON.stringify(data));
 					    console.log('api' +api_key );
 					 res.send(data);
 					  check=true;
@@ -175,12 +173,11 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-					  // res.setHeader('content-type', 'application/json');
+
 					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					  // res.send(JSON.stringify(data));
+
 					    console.log('api' +api_key );
 					  res.send(data);
 					  check=true;
@@ -236,12 +233,11 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-					  // res.setHeader('content-type', 'application/json');
+
 					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					   //res.send(JSON.stringify(data));
+
 					    console.log('api' +api_key );
 					  res.send(data);
 					  check=true;
@@ -298,22 +294,18 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-					  // res.setHeader('content-type', 'application/json');
+
 					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					   //res.send(JSON.stringify(data));
+
 					    console.log('api' +api_key );
 					  res.send(data);
 					  check=true;
 					  
 					}
 				  });
-					
-				
-					
-				  // console.log(JSON.stringify(data));
+
 				});
 				
 				}).on("error", (err) => {
@@ -359,12 +351,9 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-					  // res.setHeader('content-type', 'application/json');
-					  
+
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					   //res.send(JSON.stringify(data));
 					    console.log('api' +api_key );
 					 res.send(data);
 					  check=true;
@@ -388,17 +377,17 @@ locationID=req.params.locationID;
 
 
 
-// Display list of all Locations.
-exports.get_all_menu = function(req, res) {
-	locationID='';
-				//here you can get all location from omnivores server
-locationID=req.params.locationID;
-				
+				// Display list of all Locations.
+				exports.get_all_menu = function(req, res) {
+					locationID='';
+								//here you can get all location from omnivores server
+				locationID=req.params.locationID;
+								
 				 	
-	api_key=req.params.id;
-	var url=baseURL+'locations/'+locationID+'/menu/?limit=20&api_key='+ req.params.id;
-	console.log(url);
-	https.get(url, (resp) => {
+				api_key=req.params.id;
+				var url=baseURL+'locations/'+locationID+'/menu/?limit=20&api_key='+ req.params.id;
+				console.log(url);
+				https.get(url, (resp) => {
 				let data = '';
 				
 				console.log(resp.headers);
@@ -408,8 +397,8 @@ locationID=req.params.locationID;
 					data += chunk;
 				});
 				
-				// The whole response has been received. Print out the result.
-				resp.on('end', () => {
+					// The whole response has been received. Print out the result.
+					resp.on('end', () => {
 					
 					 getJSON(url, function(err, response){
 					if(err)
@@ -421,13 +410,8 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-					  // res.setHeader('content-type', 'application/json');
-					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					  // res.send(JSON.stringify(data));
-					    //console.log('api' +api_key );
 					  res.send(data);
 
 					  
@@ -483,22 +467,17 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-					  // res.setHeader('content-type', 'application/json');
+
 					  
 					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					  // res.send(JSON.stringify(data));
-					    //console.log('api' +api_key );
+
 					  res.send(data);
 
 					  
 					}
 				  });
-					
-				
-					
-				  // console.log(JSON.stringify(data));
+
 				});
 				
 				}).on("error", (err) => {
@@ -545,15 +524,10 @@ locationID=req.params.locationID;
 					}
 					else
 					{
-						
-						
-						
-						
-					  // res.setHeader('content-type', 'application/json');
-					  
-					  //////price check
-					  var postData = querystring.stringify({"items":[{"menu_item":"204","quantity":5}]});
-						var priceUrl=baseURL+'locations/'+locationID+'/price_check/?limit=20&api_key='+ ID;
+
+						  //////price check
+						  var postData = querystring.stringify({"items":[{"menu_item":"204","quantity":5}]});
+							var priceUrl=baseURL+'locations/'+locationID+'/price_check/?limit=20&api_key='+ ID;
 
 							const options = {
 							  
@@ -562,43 +536,55 @@ locationID=req.params.locationID;
 							  headers: {
 								'Content-Type': 'application/json',
 								'Content-Length': postData.length,
+								
+								
 							  },
 							 
 							}
 
 							
-
-							request.post(
+							var obj = null;	
+							let newData;	
+							const eq=request.post(
 							  priceUrl,
 							  {
 								json: {"items":[{"menu_item":"204","quantity":5}]},
+								'Content-Type': 'application/json',
+								'responseType': 'json',
+								
 							  },
 							  
-							  (error, res, body) => {
+							  
+							  (error, rest, body) => {
 								if (error) {
 								  console.error(error)
 								  return
 								}
-								console.log(`statusCode: ${res.statusCode}`)
-								data = body;
-								console.log(body)
+								data += rest.body;
 							  }
+							  
+							  
 							)
-					  
-					  
-					   res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
-					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					  // res.send(JSON.stringify(data));
-					    
-					  res.send(data);
 
-					  
+								res.setHeader('Access-Control-Allow-Origin','*');
+								res.setHeader('Api_Key',"'"+api_key+"'");
+								eq.on('data', chunk => {
+									data += chunk; // convert Buffer to string
+								});
+								eq.on('end', () => {
+
+									 res.setHeader('Content-Type', 'application/json');
+									 
+									  res.send(data)
+									 // eq.end();
+										
+								});
+ 
 					}
 				  });
 					
 				
-					
+				
 				  // console.log(JSON.stringify(data));
 				});
 				
@@ -616,10 +602,6 @@ exports.index = function(req, res) {
     res.send('Please Enter API Keys to connect with omivores services');
 };
 
-
-
-
-
 // check api key of all Omnivores.
 exports.auth = function(req, res) {
 	var auth_url =null;
@@ -636,8 +618,7 @@ exports.auth = function(req, res) {
 				resp.on('data', (chunk) => {
 					data += chunk;
 				});
-				
-				// The whole response has been received. Print out the result.
+
 				resp.on('end', () => {
 					
 					 getJSON(baseURL+'?api_key='+req.params.id, function(err, response){
@@ -651,11 +632,8 @@ exports.auth = function(req, res) {
 					else
 					{
 					   res.setHeader('content-type', 'application/json');
-					  
 					   res.setHeader('Access-Control-Allow-Origin','*');
 					    res.setHeader('Api_Key',"'"+api_key+"'");
-					   //res.send(JSON.stringify({json: data}));
-					  // res.send(JSON.stringify(data));
 					    console.log('api' +api_key );
 					  res.send(data);
 					  check=true;
