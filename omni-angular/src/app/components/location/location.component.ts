@@ -33,25 +33,20 @@ export class LocationComponent implements OnInit {
 	   this.conectOmnivores();
 	   
 	     var routeSub = this.route.queryParams.subscribe(params => {
-			 //console.log(params) //log the entire params object
-			// console.log(params['api_key']) //log the value of id
 			 
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
-				//this.checkAuth();
 			}
 			if(params['locationID']!='')
 			{
 				this.locationID=params['locationID'];
-				//this.checkAuth();
+				
 			}
 			 
 		   });
 	   
 	   
-	   
-	   //this.counter();
   }
   counter(i: number) {
     return new Array(i);

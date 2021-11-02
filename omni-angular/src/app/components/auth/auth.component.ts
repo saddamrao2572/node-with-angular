@@ -26,8 +26,8 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
 	 var routeSub = this.route.queryParams.subscribe(params => {
-     console.log(params) //log the entire params object
-     console.log(params['api_key']) //log the value of id
+     console.log(params) 
+     console.log(params['api_key'])
 	 this.isCheck = false;
 	if(params['api_key']!='')
 	{
@@ -78,7 +78,6 @@ export class AuthComponent implements OnInit {
 					this.renderer.appendChild(elem, text);
 				  
 				
-					// Append the created div to the body element
 					this.renderer.appendChild(document.body, elem);
 				 
 				  console.log(data);

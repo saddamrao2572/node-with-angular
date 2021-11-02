@@ -27,28 +27,21 @@ export class LocationService {
 
   auth() {
 	   var routeSub = this.route.queryParams.subscribe(params => {
-			 //console.log(params) //log the entire params object
-			// console.log(params['api_key']) //log the value of id
 			 
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
-				//this.checkAuth();
 			}
 			 
 		   });
 	  
 	  
     return this.http.get(baseUrlAuth+ this.api_key);
-	//return responce;
+
   }
   checkAuth() {
 	  
 	  
-	  
-
-	// alert(baseUrlAuth+this.api_key);
-   // return this.http.get(baseUrlAuth+ this.api_key);
 	return this.http.get(baseUrlAuth+this.api_key);
   } 
   get() {
@@ -57,13 +50,10 @@ export class LocationService {
   getAllLocations() {
 	  
 			 var routeSub = this.route.queryParams.subscribe(params => {
-			 //console.log(params) //log the entire params object
-			// console.log(params['api_key']) //log the value of id
-			 
+			
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
-				//this.checkAuth();
 			}
 			 
 		   });
@@ -74,18 +64,14 @@ export class LocationService {
   } 
   getAllCategories() {
     var routeSub = this.route.queryParams.subscribe(params => {
-			 //console.log(params) //log the entire params object
-			// console.log(params['api_key']) //log the value of id
 			 
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
-				//this.checkAuth();
 			}
 			if(params['locationID']!='')
 			{
 				this.locationID=params['locationID'];
-				//this.checkAuth();
 			}
 			 
 		   });
@@ -96,18 +82,14 @@ export class LocationService {
   }
   getAllMenu() {
     var routeSub = this.route.queryParams.subscribe(params => {
-			 //console.log(params) //log the entire params object
-			// console.log(params['api_key']) //log the value of id
 			 
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
-				//this.checkAuth();
 			}
 			if(params['locationID']!='')
 			{
 				this.locationID=params['locationID'];
-				//this.checkAuth();
 			}
 			 
 		   });
@@ -118,18 +100,14 @@ export class LocationService {
   }
    getAllTickets() {
     var routeSub = this.route.queryParams.subscribe(params => {
-			 //console.log(params) //log the entire params object
-			// console.log(params['api_key']) //log the value of id
 			 
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
-				//this.checkAuth();
 			}
 			if(params['locationID']!='')
 			{
 				this.locationID=params['locationID'];
-				//this.checkAuth();
 			}
 			 
 		   });
@@ -141,18 +119,14 @@ export class LocationService {
   
     getAllItems() {
     var routeSub = this.route.queryParams.subscribe(params => {
-			 //console.log(params) //log the entire params object
-			// console.log(params['api_key']) //log the value of id
 			 
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
-				//this.checkAuth();
 			}
 			if(params['locationID']!='')
 			{
 				this.locationID=params['locationID'];
-				//this.checkAuth();
 			}
 			 
 		   });
@@ -165,18 +139,14 @@ export class LocationService {
   
     getAllModifire() {
     var routeSub = this.route.queryParams.subscribe(params => {
-			 //console.log(params) //log the entire params object
-			// console.log(params['api_key']) //log the value of id
 			 
 			if(params['api_key']!='')
 			{
 				this.api_key=params['api_key'];
-				//this.checkAuth();
 			}
 			if(params['locationID']!='')
 			{
 				this.locationID=params['locationID'];
-				//this.checkAuth();
 			}
 			 
 		   });
